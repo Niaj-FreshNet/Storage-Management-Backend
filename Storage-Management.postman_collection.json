@@ -1,0 +1,1524 @@
+{
+	"info": {
+		"_postman_id": "69cdde6d-727b-4cfc-a5e2-48f17ab09ff5",
+		"name": "Storage-Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38800473"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Notun\",\n  \"email\": \"notunkore@gmail.com\",\n  \"password\": \"1234567890\",\n  \"profilePhoto\": null,\n  \"storageUsed\": 0,\n  \"maxStorage\": 16106127360,\n  \"createdAt\": \"2025-05-18T09:00:39.424Z\",\n  \"updatedAt\": \"2025-05-18T09:00:39.424Z\",\n  \"__v\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/auth/register",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NjA4Mzg5LCJleHAiOjE3NDgyMTMxODl9.Yy76iUSSwjbpe0MjPj7ykrXkGoHzNrHac-QekfWIIac",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"currentPassword\": \"123456\",\n  \"newPassword\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/auth/change-password",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"tanmoyparvez@gmail.com\",\n    \"password\" : \"123456\"\n}\n\n"
+						},
+						"url": {
+							"raw": "{{BASE_API}}/auth/login",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"tanmoyparvez@gmail.com\",\n    \"password\" : \"123456\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/auth/delete-user/6829a0218862ace2f5e5b499",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"auth",
+								"delete-user",
+								"6829a0218862ace2f5e5b499"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Password Reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"vulbujhona@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/auth/forgot-password",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NjA4Mzg5LCJleHAiOjE3NDgyMTMxODl9.Yy76iUSSwjbpe0MjPj7ykrXkGoHzNrHac-QekfWIIac",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"otp\": \"5caf09\",\r\n  \"newPassword\": \"passwordTaVuleGesilam\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/auth/reset-password",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Google Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idToken\": \"...\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_API}}/auth/google",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"auth",
+								"google"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/users",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/users/6829a0688862ace2f5e5b49d",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"users",
+								"6829a0688862ace2f5e5b49d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"_id\": \"6829a0688862ace2f5e5b49d\",\r\n        \"name\": \"Tanmoyyy Vai\",\r\n        \"email\": \"tanmoyparvekz12121214zz@gmail.com\",\r\n        \"maxStorage\": 16106127360,\r\n        \"createdAt\": \"2025-05-18T08:55:04.319Z\",\r\n        \"updatedAt\": \"2025-05-18T08:55:04.319Z\",\r\n        \"__v\": 0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/users/6829a0688862ace2f5e5b49d",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"users",
+								"6829a0688862ace2f5e5b49d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/users/6829a082c09fd43dcca1c553",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"users",
+								"6829a082c09fd43dcca1c553"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Folder",
+			"item": [
+				{
+					"name": "Create Folder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5Y2E3ZWU4YjdlNjFjNzNkOTZjMzUiLCJlbWFpbCI6Imt0dW1pQGdtYWlsLmNvbSIsImlhdCI6MTc0NzU2OTQwNSwiZXhwIjoxNzQ4MTc0MjA1fQ.-0F5DKzOtXMilsrT96WJDwXzjttEgYCAqX2PU4lcvR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"My Folder\",\r\n  \"userId\": \"60d0fe4f5311236168a109ca\",\r\n  \"parentFolder\": null,\r\n  \"isFavorite\": false,\r\n  \"sharedWith\": [\r\n    \"60d0fe4f5311236168a109cb\",\r\n    \"60d0fe4f5311236168a109cc\"\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/folders",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"folders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Folders of User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/folders",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"folders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Folder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5Y2E3ZWU4YjdlNjFjNzNkOTZjMzUiLCJlbWFpbCI6Imt0dW1pQGdtYWlsLmNvbSIsImlhdCI6MTc0NzU2OTkyMiwiZXhwIjoxNzQ4MTc0NzIyfQ.RzQRSGmVHGVOPcyS8FqQmn8kXqmuB__U_7-LFqCWbnk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/folders/6829c3cde8b7e61c73d96c2f",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"folders",
+								"6829c3cde8b7e61c73d96c2f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Favorite Folder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTcxODcyLCJleHAiOjE3NDgxNzY2NzJ9.LNhbJcEENhpsSRROKHBvYL_BiEarj1STvWhIO3m8tjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"isFavorite\": true\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/folders/6829c9aee8b7e61c73d96c32/favorite",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"folders",
+								"6829c9aee8b7e61c73d96c32",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Folder",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/folders/6829c9aee8b7e61c73d96c32/rename",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"folders",
+								"6829c9aee8b7e61c73d96c32",
+								"rename"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate Folder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/folders/6829c9aee8b7e61c73d96c32/duplicate",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"folders",
+								"6829c9aee8b7e61c73d96c32",
+								"duplicate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Share Folder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTcxODcyLCJleHAiOjE3NDgxNzY2NzJ9.LNhbJcEENhpsSRROKHBvYL_BiEarj1STvWhIO3m8tjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_API}}/folders/6829c9aee8b7e61c73d96c32/share",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"folders",
+								"6829c9aee8b7e61c73d96c32",
+								"share"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Note",
+			"item": [
+				{
+					"name": "Create Note",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_API}}/folders",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"folders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Notes of User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/notes?folderId=6489c9aee8b7e61c73d96c33",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"notes"
+							],
+							"query": [
+								{
+									"key": "folderId",
+									"value": "6489c9aee8b7e61c73d96c33"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5Y2E3ZWU4YjdlNjFjNzNkOTZjMzUiLCJlbWFpbCI6Imt0dW1pQGdtYWlsLmNvbSIsImlhdCI6MTc0NzU2OTkyMiwiZXhwIjoxNzQ4MTc0NzIyfQ.RzQRSGmVHGVOPcyS8FqQmn8kXqmuB__U_7-LFqCWbnk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/notes/6829df99f5b4a4dabcc5b3be",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"notes",
+								"6829df99f5b4a4dabcc5b3be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Favorite Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTcxODcyLCJleHAiOjE3NDgxNzY2NzJ9.LNhbJcEENhpsSRROKHBvYL_BiEarj1STvWhIO3m8tjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"isFavorite\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/notes/6829df99f5b4a4dabcc5b3be/favorite",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"notes",
+								"6829df99f5b4a4dabcc5b3be",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTcxODcyLCJleHAiOjE3NDgxNzY2NzJ9.LNhbJcEENhpsSRROKHBvYL_BiEarj1STvWhIO3m8tjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_API}}/notes/6829df99f5b4a4dabcc5b3be/rename",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"notes",
+								"6829df99f5b4a4dabcc5b3be",
+								"rename"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTcxODcyLCJleHAiOjE3NDgxNzY2NzJ9.LNhbJcEENhpsSRROKHBvYL_BiEarj1STvWhIO3m8tjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_API}}/notes/6829df99f5b4a4dabcc5b3be/duplicate",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"notes",
+								"6829df99f5b4a4dabcc5b3be",
+								"duplicate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Share Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTcxODcyLCJleHAiOjE3NDgxNzY2NzJ9.LNhbJcEENhpsSRROKHBvYL_BiEarj1STvWhIO3m8tjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userIds\": [\"6489ca7ee8b7e61c73d96c35\", \"6489c3bce8b7e61c73d96c2d\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/notes/6829df99f5b4a4dabcc5b3be/share",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"notes",
+								"6829df99f5b4a4dabcc5b3be",
+								"share"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unshare Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTcxODcyLCJleHAiOjE3NDgxNzY2NzJ9.LNhbJcEENhpsSRROKHBvYL_BiEarj1STvWhIO3m8tjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userIds\": [\"6489ca7ee8b7e61c73d96c35\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/notes/6829e2c4f5b4a4dabcc5b3d7/unshare",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"notes",
+								"6829e2c4f5b4a4dabcc5b3d7",
+								"unshare"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "Import Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Shahin/Downloads/images (3).jpg"
+								},
+								{
+									"key": "folderId",
+									"value": "6489c9aee8b7e61c73d96c33",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_API}}/images/upload",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"images",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Images of User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/images?folderId=6489c9aee8b7e61c73d96c33",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"images"
+							],
+							"query": [
+								{
+									"key": "folderId",
+									"value": "6489c9aee8b7e61c73d96c33"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/images/6829f9ecfc6df65c104e35f0",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"images",
+								"6829f9ecfc6df65c104e35f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Favorite Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"isFavorite\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/images/6829fb066c67bb24c516c9ee/favorite",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"images",
+								"6829fb066c67bb24c516c9ee",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"newName\": \"Updated Image Name\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/images/6829fb066c67bb24c516c9ee/rename",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"images",
+								"6829fb066c67bb24c516c9ee",
+								"rename"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_API}}/images/6829fb066c67bb24c516c9ee/duplicate",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"images",
+								"6829fb066c67bb24c516c9ee",
+								"duplicate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Share Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userIds\": [\"6489ca7ee8b7e61c73d96c35\", \"6489c3bce8b7e61c73d96c2d\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/images/6829fb066c67bb24c516c9ee/share",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"images",
+								"6829fb066c67bb24c516c9ee",
+								"share"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unshare Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userIds\": [\"6489ca7ee8b7e61c73d96c36\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/images/6829fb066c67bb24c516c9ee/unshare",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"images",
+								"6829fb066c67bb24c516c9ee",
+								"unshare"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PDF",
+			"item": [
+				{
+					"name": "Import PDF",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": "/C:/Users/Shahin/Downloads/CV-NIAJ.pdf"
+								},
+								{
+									"key": "folderId",
+									"value": "6489c9aee8b7e61c73d96c33",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_API}}/pdf/upload",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"pdf",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All PDF of User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/pdf?folderId=6489c9aee8b7e61c73d96c33",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"pdf"
+							],
+							"query": [
+								{
+									"key": "folderId",
+									"value": "6489c9aee8b7e61c73d96c33"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete PDF",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_API}}/pdf/682a3e5178c6952abef74690",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"pdf",
+								"682a3e5178c6952abef74690"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Favorite PDF",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"isFavorite\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/pdf/682a3ed878c6952abef74695/favorite",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"pdf",
+								"682a3ed878c6952abef74695",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename PDF",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"newName\": \"Updated PDF Name\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/pdf/682a3ed878c6952abef74695/rename",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"pdf",
+								"682a3ed878c6952abef74695",
+								"rename"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate PDF",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_API}}/pdf/682a3ed878c6952abef74695/duplicate",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"pdf",
+								"682a3ed878c6952abef74695",
+								"duplicate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Share PDF",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userIds\": [\"6489ca7ee8b7e61c73d96c36\", \"6489c3bce8b7e61c73d96c2e\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/pdf/682a3ed878c6952abef74695/share",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"pdf",
+								"682a3ed878c6952abef74695",
+								"share"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unshare PDF",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YzNiY2U4YjdlNjFjNzNkOTZjMmQiLCJlbWFpbCI6InZ1bGJ1amhvbmFAZ21haWwuY29tIiwiaWF0IjoxNzQ3NTc1NDQzLCJleHAiOjE3NDgxODAyNDN9.Yivh24AvpZc85uZ1PPmsQrUj4lpZwKQA9p204EMYATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userIds\": [\r\n        \"6489ca7ee8b7e61c73d96c35\",\r\n        \"6489c3bce8b7e61c73d96c2d\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/pdf/682a3ed878c6952abef74695/unshare",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"pdf",
+								"682a3ed878c6952abef74695",
+								"unshare"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favorites",
+			"item": [
+				{
+					"name": "Get All Favorites",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Calender",
+			"item": [
+				{
+					"name": "Get All By Date",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_API",
+			"value": "http://localhost:5000/api/v1",
+			"type": "default"
+		},
+		{
+			"key": "ACCESS TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YmM4MWEzMzMxMjU1ZDg0M2U1ZDMiLCJlbWFpbCI6InBlbnNpdmVuaWFqQGdtYWlsLmNvbSIsImlhdCI6MTc0NzU2NTgyNCwiZXhwIjoxNzQ4MTcwNjI0fQ.s3ax47N-lahYdgrtZQt4JOtMdBhr6HGtbjsjz-JiuBM",
+			"type": "default"
+		},
+		{
+			"key": "ACCESS_TOKEN",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
